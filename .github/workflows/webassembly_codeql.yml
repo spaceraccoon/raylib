@@ -62,4 +62,4 @@ jobs:
         path: ./webassembly-database/
           asset_name: ${{ env.RELEASE_NAME }}.zip
           asset_content_type: application/zip
-      if: github.event_name == 'release' && github.event.action == 'published'
+    
