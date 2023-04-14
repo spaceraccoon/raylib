@@ -60,7 +60,7 @@ jobs:
       run: |
         cd src
         emcc -v
-        PLATFORM=PLATFORM_WEB EMSDK_PATH="D:/a/raylib/raylib/emsdk-cache/emsdk-main" RAYLIB_RELEASE_PATH="../build/${{ env.RELEASE_NAME }}/lib" codeql database create webassembly-database --language=c --command='make -B' 
+        codeql database create webassembly-database --language=c --command='make PLATFORM=PLATFORM_WEB EMSDK_PATH="D:/a/raylib/raylib/emsdk-cache/emsdk-main" -B' 
         
     - name: Upload Artifacts
       uses: actions/upload-artifact@v3
