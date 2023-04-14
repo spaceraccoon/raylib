@@ -60,10 +60,6 @@ jobs:
       run: |
         cd src
         emcc -v
-        codeql database create webassembly-database --language=c --command='make PLATFORM=PLATFORM_WEB EMSDK_PATH="D:/a/raylib/raylib/emsdk-cache/emsdk-main" -B' 
-        
-    - name: Upload Artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: webassembly-database
-        path: ./webassembly-database/
+        make PLATFORM=PLATFORM_WEB EMSDK_PATH="D:/a/raylib/raylib/emsdk-cache/emsdk-main" RAYLIB_RELEASE_PATH="../build/${{ env.RELEASE_NAME }}/lib" -B 
+  - name: Perform CodeQL Analysis
+  uses: github/codeql-action/analyze@v2
