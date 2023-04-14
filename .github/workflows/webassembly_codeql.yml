@@ -55,6 +55,8 @@ jobs:
         
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
+      with:
+        queries: ''
    
     - name: Build CodeQL Database
       run: |
